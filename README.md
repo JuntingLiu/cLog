@@ -1,2 +1,3 @@
 # clog
+
 Colourful console log.

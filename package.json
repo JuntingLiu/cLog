@@ -1,0 +1,41 @@
+{
+  "name": "clog",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/umd/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c build/rollup.config.js && pnpm dts",
+    "注释：": "pnpm 下执行 build 将不会执行 pre/post 脚本了",
+    "dts": "tsc --project tsconfig.json --outDir dist/esm",
+    "start:react": "cd ./examples/react-demo && yarn && yarn start"
+  },
+  "keywords": [
+    "Colourful",
+    "Console",
+    "log"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "rollup": "^2.79.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.4",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-commonjs": "^23.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.15.10",
+    "npm-run-all": "^4.1.5",
+    "rollup-plugin-esbuild": "^4.10.1",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^2.0.1",
+    "typescript": "^4.8.4"
+  }
+}
