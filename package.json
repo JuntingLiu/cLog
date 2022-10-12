@@ -1,5 +1,5 @@
 {
-  "name": "cLog",
+  "name": "c-log-kit",
   "version": "0.0.1",
   "description": "Colourful console log.",
   "main": "dist/umd/index.js",
