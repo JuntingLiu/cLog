@@ -1,3 +1,3 @@
 interface Window {
-  clog: Record<string, any>
+  cLog: Record<string, any>
 }

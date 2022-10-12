@@ -5,7 +5,7 @@ export default function () {
   const options = {
     // 入口文件
     input: paths.appIndexJS,
-    jsName: "clog"
+    jsName: "cLog"
   };
 
   return [

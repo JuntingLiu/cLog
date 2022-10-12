@@ -4,7 +4,7 @@
  * @Author: Junting
  * @Date: 2022-09-20 13:53:06
  * @Last Modified by: Junting
- * @Last Modified time: 2022-10-11 17:15:32
+ * @Last Modified time: 2022-10-12 09:47:05
  */
 export declare type ColorTypes = keyof typeof chalkColors;
 export declare type TypeApiObjKeys = keyof typeof apiObj;

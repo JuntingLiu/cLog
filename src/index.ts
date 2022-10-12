@@ -1,10 +1,10 @@
 /**
- * 🎨 clog
+ * 🎨 cLog
  * Colourful console log.
  * @Author: Junting
  * @Date: 2022-09-20 13:53:06
  * @Last Modified by: Junting
- * @Last Modified time: 2022-10-11 17:15:32
+ * @Last Modified time: 2022-10-12 09:48:32
  */
 
 import { capitalizeFirstLetter, typeOf } from "./utilities";
@@ -17,12 +17,12 @@ interface ConsoleExtension extends Console {
   [key: string]: any;
 }
 
-const clog = {} as any;
+const cLog = {} as any;
 // 防止 console 被篡改
 const _console: ConsoleExtension = console;
 
-if (!window.clog) {
-  window.clog = clog;
+if (!window.cLog) {
+  window.cLog = cLog;
 }
 
 /**
@@ -152,22 +152,22 @@ const generatePrintFunc = (methodName: string) => {
 
 // 七彩画笔
 Object.keys(chalkColors).forEach((key) => {
-  clog[key] = (...args: any) => generateOutput(key, ...args);
+  cLog[key] = (...args: any) => generateOutput(key, ...args);
 });
 
 // 色块画笔
 Object.keys(chalkColors).forEach((key) => {
-  clog[`bg${capitalizeFirstLetter(key)}`] = (...args: any) => generateOutput(`bg${capitalizeFirstLetter(key)}`, ...args);
+  cLog[`bg${capitalizeFirstLetter(key)}`] = (...args: any) => generateOutput(`bg${capitalizeFirstLetter(key)}`, ...args);
 });
 
 // 功能画笔
 Object.keys(apiObj).forEach((key) => {
-  clog[key] = (...args: any) => generatePrintFunc(key)(...generateOutput(key, ...args));
+  cLog[key] = (...args: any) => generatePrintFunc(key)(...generateOutput(key, ...args));
 });
 
-clog["splice"] = (...args: any[]) => {
+cLog["splice"] = (...args: any[]) => {
   return _console.log(...splicing(...args))
 };
 
 // 拼接色块
-export default clog;
+export default cLog;
