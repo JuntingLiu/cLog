@@ -3,7 +3,7 @@
  * @Author: Junting
  * @Date: 2022-10-11 14:18:22
  * @Last Modified by: Junting
- * @Last Modified time: 2022-10-11 16:00:51
+ * @Last Modified time: 2022-10-14 12:41:58
  */
 
 import paths from "./paths";
@@ -11,6 +11,7 @@ import esbuild from 'rollup-plugin-esbuild';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { babel } from '@rollup/plugin-babel';
 import commonJS from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 
 const extensions = ['.ts'];
 
@@ -31,7 +32,8 @@ export function esm ({ input }) {
       esbuild({
         target: "ES2020"
       }),
-      nodeResolve({ extensions })
+      nodeResolve({ extensions }),
+      json()
     ]
   }
 }
@@ -59,7 +61,8 @@ export function umd({ input, jsName }) {
         extensions
       }),
       nodeResolve({ extensions }),
-      commonJS()
+      commonJS(),
+      json()
     ],
   }
 }

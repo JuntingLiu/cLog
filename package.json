@@ -1,6 +1,6 @@
 {
   "name": "c-log-kit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Colourful console log.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -29,6 +29,7 @@
     "@babel/preset-env": "^7.19.4",
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-commonjs": "^23.0.0",
+    "@rollup/plugin-json": "^5.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "cross-env": "^7.0.3",
     "esbuild": "^0.15.10",

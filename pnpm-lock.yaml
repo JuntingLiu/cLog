@@ -5,6 +5,7 @@ specifiers:
   '@babel/preset-env': ^7.19.4
   '@rollup/plugin-babel': ^6.0.0
   '@rollup/plugin-commonjs': ^23.0.0
+  '@rollup/plugin-json': ^5.0.0
   '@rollup/plugin-node-resolve': ^15.0.0
   cross-env: ^7.0.3
   esbuild: ^0.15.10
@@ -23,6 +24,7 @@ devDependencies:
   '@babel/preset-env': 7.19.4_@babel+core@7.19.3
   '@rollup/plugin-babel': 6.0.0_vy4anxjpv2s44kyfi2kxqu576u
   '@rollup/plugin-commonjs': 23.0.0_rollup@2.79.1
+  '@rollup/plugin-json': 5.0.0_rollup@2.79.1
   '@rollup/plugin-node-resolve': 15.0.0_rollup@2.79.1
   cross-env: 7.0.3
   esbuild: 0.15.10
@@ -1272,6 +1274,19 @@ packages:
       glob: 8.0.3
       is-reference: 1.2.1
       magic-string: 0.26.7
+      rollup: 2.79.1
+    dev: true
+
+  /@rollup/plugin-json/5.0.0_rollup@2.79.1:
+    resolution: {integrity: sha512-LsWDA5wJs/ggzakVuKQhZo7HPRcQZgBa3jWIVxQSFxaRToUGNi8ZBh3+k/gQ+1eInVYJgn4WBRCUkmoDrmmGzw==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 4.2.1
       rollup: 2.79.1
     dev: true
 
