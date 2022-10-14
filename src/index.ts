@@ -4,7 +4,7 @@
  * @Author: Junting
  * @Date: 2022-09-20 13:53:06
  * @Last Modified by: Junting
- * @Last Modified time: 2022-10-14 12:58:15
+ * @Last Modified time: 2022-10-14 13:00:15
  */
 
 import { capitalizeFirstLetter, typeOf } from "./utilities";
@@ -19,19 +19,9 @@ interface ConsoleExtension extends Console {
 
 import packageJSON from "../package.json";
 
-const cLog = {
-  hello: () => {
-    console.log(
-        "%c%s%c%s",
-        "padding: 2px 4px; border-radius: 3px 0 0 3px; color: #fff; font-weight: bold; background:#1890ff;",
-        "cLog",
-        "padding: 2px 4px; color: #000; border-radius: 0 3px 3px 0px; font-weight: bold; background:#e8eaec;",
-        `V${packageJSON.version}`,
-    );
-  }
-} as any;
+const cLog = {} as any;
 // 防止 console 被篡改
-const _console: Console = console;
+const _console: ConsoleExtension = console;
 
 if (!window.cLog) {
   window.cLog = cLog;
@@ -80,6 +70,16 @@ const apiObj = {
 
 // 依据当前提供的功能 API 针对性着色
 // 1、添加功能标签
+
+cLog["hello"] = () => {
+  console.log(
+      "%c%s%c%s",
+      "padding: 2px 4px; border-radius: 3px 0 0 3px; color: #fff; font-weight: bold; background:#1890ff;",
+      "cLog",
+      "padding: 2px 4px; color: #000; border-radius: 0 3px 3px 0px; font-weight: bold; background:#e8eaec;",
+      `V${packageJSON.version}`,
+  );
+}
 
 // 生成样式
 const generateStyle = (color: string, bg = false, borderRadius = true) => {
