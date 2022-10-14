@@ -4,7 +4,7 @@
  * @Author: Junting
  * @Date: 2022-09-20 13:53:06
  * @Last Modified by: Junting
- * @Last Modified time: 2022-10-14 12:40:47
+ * @Last Modified time: 2022-10-14 12:58:15
  */
 
 import { capitalizeFirstLetter, typeOf } from "./utilities";
@@ -19,9 +19,19 @@ interface ConsoleExtension extends Console {
 
 import packageJSON from "../package.json";
 
-const cLog = {} as any;
+const cLog = {
+  hello: () => {
+    console.log(
+        "%c%s%c%s",
+        "padding: 2px 4px; border-radius: 3px 0 0 3px; color: #fff; font-weight: bold; background:#1890ff;",
+        "cLog",
+        "padding: 2px 4px; color: #000; border-radius: 0 3px 3px 0px; font-weight: bold; background:#e8eaec;",
+        `V${packageJSON.version}`,
+    );
+  }
+} as any;
 // 防止 console 被篡改
-const _console: ConsoleExtension = console;
+const _console: Console = console;
 
 if (!window.cLog) {
   window.cLog = cLog;
@@ -169,10 +179,6 @@ Object.keys(apiObj).forEach((key) => {
 
 cLog["splice"] = (...args: any[]) => {
   return _console.log(...splicing(...args))
-};
-
-cLog["hello"] = () => {
-  cLog.splice(cLog.bgBlue("cLog"), cLog.bgOrange(`V${packageJSON.version}`));
 };
 
 // 拼接色块
