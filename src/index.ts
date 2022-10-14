@@ -4,7 +4,7 @@
  * @Author: Junting
  * @Date: 2022-09-20 13:53:06
  * @Last Modified by: Junting
- * @Last Modified time: 2022-10-12 09:48:32
+ * @Last Modified time: 2022-10-14 12:40:47
  */
 
 import { capitalizeFirstLetter, typeOf } from "./utilities";
@@ -16,6 +16,8 @@ export type ConsoleApiKey = keyof Console;
 interface ConsoleExtension extends Console {
   [key: string]: any;
 }
+
+import packageJSON from "../package.json";
 
 const cLog = {} as any;
 // 防止 console 被篡改
@@ -167,6 +169,10 @@ Object.keys(apiObj).forEach((key) => {
 
 cLog["splice"] = (...args: any[]) => {
   return _console.log(...splicing(...args))
+};
+
+cLog["hello"] = () => {
+  cLog.splice(cLog.bgBlue("cLog"), cLog.bgOrange(`V${packageJSON.version}`));
 };
 
 // 拼接色块
